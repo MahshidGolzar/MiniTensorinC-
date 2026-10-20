@@ -17,6 +17,7 @@ Every deep learning framework's `Tensor` type is, underneath, a flat buffer of n
 ## Known limitations
 
 - 2D only — no general N-dimensional support.
+- No strides, views, or broadcasting — every op allocates a full new `Matrix`, and there's no way to reinterpret the same underlying data as a different shape without copying. Real tensor libraries use strides specifically to avoid this; deliberately left out here to keep the class small enough to explain in full.
 - `matmul` is the textbook triple-nested-loop definition — O(n³), no blocking/tiling/SIMD. Fine for small matrices, not how a real BLAS library would do it.
 - No bounds-checking on `at(i, j)` — passing an out-of-range index is undefined behaviour, same as `std::vector::operator[]`. A production version would likely assert or throw on out-of-range access.
 
