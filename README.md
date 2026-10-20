@@ -1,10 +1,10 @@
 # mini_tensor
 
-A tiny, from-scratch 2D matrix ("tensor") class in C++: no libraries beyond the standard library, no build system beyond a single compiler command.
+A tiny 2D matrix ("tensor") class in C++. It uses only the standard library and builds with a single compiler command.
 
 ## Why this exists
 
-Every deep learning framework's `Tensor` type is, underneath, a flat buffer of numbers plus a shape describing how to read that buffer, with arithmetic operators defined on top. This is a small, honest version of that same idea — simple enough to explain line by line, and a useful stepping stone to reading real `torch::Tensor` code (see the `pytorch-parametric-swish` project).
+Every deep learning framework's `Tensor` type is, underneath, a flat buffer of numbers plus a shape describing how to read that buffer, with arithmetic operators defined on top. This is a small version of that same idea, kept simple enough to read in one sitting, and a useful stepping stone to reading real `torch::Tensor` code (see the `pytorch-parametric-swish` project).
 
 ## What's in here
 
