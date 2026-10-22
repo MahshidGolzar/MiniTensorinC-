@@ -24,12 +24,12 @@ class Matrix {
 
   // Non-const access: returns a reference, so callers can both read AND
   // write through it, e.g. `m.at(0, 1) = 5.0;`
-  double &at(int i, int j) {
+  float &at(int i, int j) {
     return data_[i * cols_ + j];
   }
 
   // Const access: same indexing, but for read-only (const) Matrix objects.
-  double at(int i, int j) const {
+  float at(int i, int j) const {
     return data_[i * cols_ + j];
   }
 
@@ -42,13 +42,13 @@ class Matrix {
         std::cout << at(i, j);
         if (j + 1 < cols_) std::cout << " ";
       }
-      std::cout << "\n";
+      std::cout << "\nfloat";
     }
   }
 
  private:
   int rows_, cols_;
-  std::vector<double> data_;  // flat buffer: element (i, j) lives at i*cols_ + j
+  std::vector<float> data_;  // flat buffer: element (i, j) lives at i*cols_ + j
 };
 
 // Elementwise addition: a and b must be the same shape.
@@ -87,7 +87,7 @@ Matrix matmul(const Matrix &a, const Matrix &b) {
   Matrix result(a.rows(), b.cols());
   for (int i = 0; i < a.rows(); ++i) {
     for (int j = 0; j < b.cols(); ++j) {
-      double sum = 0.0;
+      float sum = 0.0;
       for (int k = 0; k < a.cols(); ++k) {
         sum += a.at(i, k) * b.at(k, j);
       }
