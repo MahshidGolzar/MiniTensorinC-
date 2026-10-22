@@ -5,7 +5,7 @@
 //
 // Point of this file: every deep learning framework's Tensor is, underneath,
 // a flat buffer of numbers plus a shape describing how to read that buffer,
-// with arithmetic operators defined on top. This is a small, honest version
+// with arithmetic operators defined on top. This is a small version
 // of that same idea - understanding it from the inside makes the real
 // torch::Tensor code in parametric_swish.cpp less of a black box.
 //
